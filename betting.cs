@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MyGame
 {
-    internal class Money
+    internal class betting
     {
-        public int don;
+        public bool half = false;
+        public bool die = false;
 
 
     }
