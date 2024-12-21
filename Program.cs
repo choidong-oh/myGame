@@ -10,9 +10,10 @@ namespace MyGame
     {
         static void Main(string[] args)
         {
-            Player player = new Player();
-            player.deck.showDack();
+            GameMaster gameMaster = new GameMaster();
 
+
+            gameMaster.gamestart();
 
 
 

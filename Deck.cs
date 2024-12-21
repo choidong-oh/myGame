@@ -13,15 +13,12 @@ namespace MyGame
         List<Card> unusedeck = new List<Card>(20);//확인용
         public List<Card> usedeck = new List<Card>(20);//사용할덱
         
-        //메서드나 생성자로 카드생성20장
-        public Deck()
+        
+        //사용덱 초기화, 섞기
+        public void shuffledeck()
         {
-            //card할당 돼야댐
-
-            //덱초기화
-            //모든카드 제거
             usedeck.Clear();
-            
+            Console.WriteLine("덱 카드 초기화");
             //임시용 카드 대입1~10, 1~10
             for (int i = 0; i < 2; i++)
             {
@@ -30,10 +27,21 @@ namespace MyGame
                     card = new Card();
                     card.CardNum = j;
                     usedeck.Add(card);
-                    
+
                 }
             }
         }
+        public Card drawcard()
+        {
+            Console.WriteLine("카드 한장 뽑음");
+            //마지막 패 뽑고 반환
+            var temp = usedeck.Last();
+            usedeck.Remove(temp);
+            return temp;
+        }
+
+
+
 
         public void showDack()
         {

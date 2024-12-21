@@ -8,8 +8,9 @@ namespace MyGame
 {
     internal class Ai : Player
     {
-
-
-
+        public Ai(int money) : base(money)
+        {
+            hasmoney = money;
+        }
     }
 }
