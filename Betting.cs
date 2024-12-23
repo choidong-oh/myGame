@@ -11,12 +11,14 @@ namespace MyGame
        
         public void basicbetting(Player player,Ai ai, GameMaster master)
         {
+            int two = 2;
             //기본금 뺴고, 판돈에 기본금 추가
             player.hasmoney -= master.basicbettingmoney;
             player.playerbettingmoney = master.basicbettingmoney;
             ai.hasmoney -= master.basicbettingmoney;
             ai.playerbettingmoney = master.basicbettingmoney;
-            master.totalbettingmoney = master.basicbettingmoney * 2;
+            master.totalbettingmoney =master.basicbettingmoney*two;
+            Console.WriteLine("master.totalbettingmoney : "+ master.totalbettingmoney);
         }
 
 
