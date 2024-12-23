@@ -24,36 +24,37 @@ namespace MyGame
 
 
 
-        //public void bettingname(string answer)
-        //{
-        //    //예) 하프
-        //    if(answer == "half")
-        //    {
-        //        //앞사람 배팅금 + 전체배팅금/2
-        //        player.playerbettingmoney = ai.playerbettingmoney + master.totalbettingmoney;
+        public void bettingname(Player player, Ai ai, GameMaster master,string answer)
+        {
+            
+            //예) 하프
+            if (answer == "half")
+            {
+                //앞사람 배팅금 + 전체배팅금/2
+                player.playerbettingmoney = ai.playerbettingmoney + master.totalbettingmoney;
 
-        //        player.hasmoney -= player.playerbettingmoney;
-        //        master.totalbettingmoney += player.playerbettingmoney;
-        //    }
-        //    else if(answer == "call")
-        //    {
-        //        //앞사람 배팅금
-        //        player.playerbettingmoney = ai.playerbettingmoney;
+                player.hasmoney -= player.playerbettingmoney;
+                master.totalbettingmoney += player.playerbettingmoney;
+            }
+            else if (answer == "call")
+            {
+                //앞사람 배팅금
+                player.playerbettingmoney = ai.playerbettingmoney;
 
-        //        player.hasmoney -= player.playerbettingmoney;
-        //        master.totalbettingmoney += player.playerbettingmoney;
-        //    }
-        //    else if(answer == "bbing")
-        //    {
-        //        //기본머니만큼 배팅
-        //        player.playerbettingmoney = master.basicbettingmoney;
+                player.hasmoney -= player.playerbettingmoney;
+                master.totalbettingmoney += player.playerbettingmoney;
+            }
+            else if (answer == "bbing")
+            {
+                //기본머니만큼 배팅
+                player.playerbettingmoney = master.basicbettingmoney;
 
-        //    }
-        //    else if (answer == "fold")
-        //    {
-        //        //die
-        //    }
-       // }
+            }
+            else if (answer == "fold")
+            {
+                //die
+            }
+        }
 
 
 

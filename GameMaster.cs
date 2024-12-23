@@ -44,8 +44,6 @@ namespace MyGame
 
         public void gamestart()
         {
-            GameMaster master = new GameMaster();
-            
             ai = new Ai(51000);
             player = new Player(51000);
 
@@ -59,11 +57,7 @@ namespace MyGame
             //2. 기본배팅창
             Console.WriteLine("기본 배팅 할거면 1번");
             int a = int.Parse(Console.ReadLine());
-            Console.WriteLine(totalbettingmoney);
-            bettingclass.basicbetting(player,ai, master);
-            //basicbetting();//기본 배팅//천원깍음
-            Console.WriteLine(totalbettingmoney);
-            Timedelay(50);
+            bettingclass.basicbetting(player,ai, this);
             showprint();
             Timedelay(1);
 
@@ -84,7 +78,7 @@ namespace MyGame
             Console.WriteLine("배팅 뭐할래? 1번 : 콜, 2번 : 하프, 3번 : 다이");
             a = int.Parse(Console.ReadLine());
             betting();
-            //bettingclass.bettingname("half");
+            bettingclass.bettingname(player,ai,this,"half");
             showprint();
 
 
@@ -155,7 +149,7 @@ namespace MyGame
        
         public void showprint()
         {
-            //Console.Clear();
+            Console.Clear();
             Console.WriteLine("AI");
             Console.WriteLine("aimoney : " + ai.hasmoney);
             Console.WriteLine();
@@ -236,16 +230,6 @@ namespace MyGame
             player.hascard.Clear();
             ai.hascard.Clear();
         }
-        //기본배팅
-        //public void basicbetting()
-        //{
-        //    //기본금 뺴고, 판돈에 기본금 추가
-        //    player.hasmoney -= basicbettingmoney;
-        //    player.playerbettingmoney = basicbettingmoney;
-        //    ai.hasmoney -= basicbettingmoney;
-        //    ai.playerbettingmoney = basicbettingmoney;
-        //    totalbettingmoney = basicbettingmoney * 2;
-        //}
 
     }
 }
