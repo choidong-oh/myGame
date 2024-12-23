@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ai.cs" />
+    <Compile Include="Betting.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="CardIMage.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="GameMaster.cs" />
     <Compile Include="Money.cs" />

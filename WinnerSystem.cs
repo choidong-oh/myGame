@@ -56,7 +56,7 @@ namespace MyGame
             }
             else if (has1.CardNum == 9 && has2.CardNum == 9)
             {
-                jokboarray.Add(100 + has1.CardNum * 9);
+                jokboarray.Add(100 + has1.CardNum *10);
                 jokboarray.Add(0);
                 Console.WriteLine("9땡");
                 return jokboarray;
@@ -64,7 +64,7 @@ namespace MyGame
 
             else if (has1.CardNum == 8 && has2.CardNum == 8)
             {
-                jokboarray.Add(100 + has1.CardNum * 8);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("8땡");
                 return jokboarray;
@@ -72,7 +72,7 @@ namespace MyGame
 
             else if (has1.CardNum == 7 && has2.CardNum == 7)
             {
-                jokboarray.Add(100 + has1.CardNum * 7);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("7땡");
                 return jokboarray;
@@ -80,7 +80,7 @@ namespace MyGame
 
             else if (has1.CardNum == 6 && has2.CardNum == 6)
             {
-                jokboarray.Add(100 + has1.CardNum * 6);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("6땡");
                 return jokboarray;
@@ -88,35 +88,35 @@ namespace MyGame
 
             else if (has1.CardNum == 5 && has2.CardNum == 5)
             {
-                jokboarray.Add(100 + has1.CardNum * 5);
+                jokboarray.Add(100 + has1.CardNum*10 );
                 jokboarray.Add(0);
                 Console.WriteLine("5땡");
                 return jokboarray;
             }
             else if (has1.CardNum == 4 && has2.CardNum == 4)
             {
-                jokboarray.Add(100 + has1.CardNum * 4);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("4땡");
                 return jokboarray;
             }
             else if (has1.CardNum == 3 && has2.CardNum == 3)
             {
-                jokboarray.Add(100 + has1.CardNum * 3);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("3땡");
                 return jokboarray;
             }
             else if (has1.CardNum == 2 && has2.CardNum == 2)
             {
-                jokboarray.Add(100 + has1.CardNum * 2);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("2땡");
                 return jokboarray;
             }
             else if (has1.CardNum == 1 && has2.CardNum == 1)
             {
-                jokboarray.Add(100 + has1.CardNum * 1);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("1땡");
                 return jokboarray;//110
@@ -131,35 +131,35 @@ namespace MyGame
                 Console.WriteLine("알리");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 1 && has2.CardNum == 4)
             {
                 jokboarray.Add(55);
                 jokboarray.Add(0);
                 Console.WriteLine("독사");
                 return jokboarray;
             }
-             else if (has1.CardNum == 1 && has2.CardNum == 2)
+             else if (has1.CardNum == 1 && has2.CardNum == 9)
             {
                 jokboarray.Add(54);
                 jokboarray.Add(0);
                 Console.WriteLine("구삥");
                 return jokboarray;
             }
-             else if (has1.CardNum == 1 && has2.CardNum == 2)
+             else if (has1.CardNum == 1 && has2.CardNum == 10)
             {
                 jokboarray.Add(53);
                 jokboarray.Add(0);
                 Console.WriteLine("장삥");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 4 && has2.CardNum == 10)
             {
                 jokboarray.Add(52);
                 jokboarray.Add(0);
                 Console.WriteLine("장사");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 4 && has2.CardNum == 6)
             {
                 jokboarray.Add(51);
                 jokboarray.Add(0);
@@ -186,7 +186,7 @@ namespace MyGame
                 Console.WriteLine("암행어사");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 4 && has2.CardNum == 9)
             {
                 //??
                 //구땡이하 재경기
@@ -264,7 +264,7 @@ namespace MyGame
             }
             else if (has1.CardNum == 9 && has2.CardNum == 9)
             {
-                jokboarray.Add(100 + has1.CardNum * 9);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("9땡");
                 return jokboarray;
@@ -272,7 +272,7 @@ namespace MyGame
 
             else if (has1.CardNum == 8 && has2.CardNum == 8)
             {
-                jokboarray.Add(100 + has1.CardNum * 8);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("8땡");
                 return jokboarray;
@@ -280,7 +280,7 @@ namespace MyGame
 
             else if (has1.CardNum == 7 && has2.CardNum == 7)
             {
-                jokboarray.Add(100 + has1.CardNum * 7);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("7땡");
                 return jokboarray;
@@ -288,7 +288,7 @@ namespace MyGame
 
             else if (has1.CardNum == 6 && has2.CardNum == 6)
             {
-                jokboarray.Add(100 + has1.CardNum * 6);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("6땡");
                 return jokboarray;
@@ -296,35 +296,35 @@ namespace MyGame
 
             else if (has1.CardNum == 5 && has2.CardNum == 5)
             {
-                jokboarray.Add(100 + has1.CardNum * 5);
+                jokboarray.Add(100 + has1.CardNum *10);
                 jokboarray.Add(0);
                 Console.WriteLine("5땡");
                 return jokboarray;
             }
             else if (has1.CardNum == 4 && has2.CardNum == 4)
             {
-                jokboarray.Add(100 + has1.CardNum * 4);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("4땡");
                 return jokboarray;
             }
             else if (has1.CardNum == 3 && has2.CardNum == 3)
             {
-                jokboarray.Add(100 + has1.CardNum * 3);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("3땡");
                 return jokboarray;
             }
             else if (has1.CardNum == 2 && has2.CardNum == 2)
             {
-                jokboarray.Add(100 + has1.CardNum * 2);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("2땡");
                 return jokboarray;
             }
             else if (has1.CardNum == 1 && has2.CardNum == 1)
             {
-                jokboarray.Add(100 + has1.CardNum * 1);
+                jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
                 Console.WriteLine("1땡");
                 return jokboarray;//110
@@ -339,35 +339,35 @@ namespace MyGame
                 Console.WriteLine("알리");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 1 && has2.CardNum == 4)
             {
                 jokboarray.Add(55);
                 jokboarray.Add(0);
                 Console.WriteLine("독사");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 1 && has2.CardNum == 9)
             {
                 jokboarray.Add(54);
                 jokboarray.Add(0);
                 Console.WriteLine("구삥");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 1 && has2.CardNum == 10)
             {
                 jokboarray.Add(53);
                 jokboarray.Add(0);
                 Console.WriteLine("장삥");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 4 && has2.CardNum == 10)
             {
                 jokboarray.Add(52);
                 jokboarray.Add(0);
                 Console.WriteLine("장사");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 4 && has2.CardNum == 6)
             {
                 jokboarray.Add(51);
                 jokboarray.Add(0);
@@ -376,7 +376,7 @@ namespace MyGame
             }
 
             //특수규칙
-            else if (has1.CardNum == 3 && has2.CardNum == 7 && (has1.isGwang == true || has2.isGwang == true))
+            else if (has1.CardNum == 3 && has2.CardNum == 7 && has1.isGwang == true )
             {
                 //땡일때만 사용 // 0끗
                 jokboarray.Add(0);
@@ -394,7 +394,7 @@ namespace MyGame
                 Console.WriteLine("암행어사");
                 return jokboarray;
             }
-            else if (has1.CardNum == 1 && has2.CardNum == 2)
+            else if (has1.CardNum == 4 && has2.CardNum == 9)
             {
                 //??
                 //구땡이하 재경기
@@ -443,24 +443,54 @@ namespace MyGame
                 if (playerarray2 == 1)//aijokbo(ai)
                 {
                     //반대인경우도 넣어야댐 ai가 이기는경우
-                    if (aiarray1 == 200 && aiarray1 % 10 == 0 && aiarray1 != 0)//장땡 아니면서 땡이고 끗아닌
+                    if (aiarray1 != 200 && aiarray1 % 10 == 0 && aiarray1 != 0)//장땡 아니면서 땡이고 끗아닌
                     {
                         return "playerwin";
                     }
                     else
                     {
-                        basicwinner(player, ai);
+                        //49파토
+                        if (aiarray2 == 3)
+                        {
+                            if (aiarray1 < 200)//장땡이하
+                            {
+                                return "draw";
+                            }
+                            else
+                            {
+                                return basicwinner(player, ai);
+                            }
+                        }
+                        else
+                        {
+                            return basicwinner(player, ai);
+                        }
                     }
                 }
                 else if (aiarray2 == 1)
                 {
-                    if (playerarray1 == 200 && playerarray1 % 10 == 0 && playerarray1 != 0)//장땡 아니면서 땡이고 끗아닌
+                    if (playerarray1 !=200 && playerarray1 % 10 == 0 && playerarray1 != 0)//장땡 아니면서 땡이고 끗아닌
                     {
                         return "aiwin";
                     }
                     else
                     {
-                        basicwinner(player, ai);
+                        //49파토
+                        if (playerarray2 == 3)
+                        {
+                            if (playerarray1 < 200)//장땡이하
+                            {
+                                return "draw";
+                            }
+                            else
+                            {
+                                return basicwinner(player, ai);
+                            }
+                        }
+                        else
+                        {
+                            return basicwinner(player, ai);
+                        }
                     }
                 }
 
@@ -471,9 +501,21 @@ namespace MyGame
                     {
                         return "playerwin";
                     }
+                    //49파토
+                    if (aiarray2 == 3)
+                    {
+                        if (aiarray1 < 200)//장땡이하
+                        {
+                            return "draw";
+                        }
+                        else
+                        {
+                            return basicwinner(player, ai);
+                        }
+                    }
                     else
                     {
-                        basicwinner(player, ai);
+                        return basicwinner(player, ai);
                     }
                 }
                 else if (aiarray2 == 2)
@@ -484,7 +526,22 @@ namespace MyGame
                     }
                     else
                     {
-                        basicwinner(player, ai);
+                        //49파토
+                        if (playerarray2 == 3)
+                        {
+                            if (aiarray1 < 200)//장땡이하
+                            {
+                                return "draw";
+                            }
+                            else
+                            {
+                                return basicwinner(player, ai);
+                            }
+                        }
+                        else
+                        {
+                            return basicwinner(player, ai);
+                        }
                     }
                 }
 
@@ -497,18 +554,18 @@ namespace MyGame
                     }
                     else
                     {
-                        basicwinner(player, ai);
+                        return basicwinner(player, ai);
                     }
                 }
                 else if (aiarray2 == 3)
                 {
-                    if (playerarray1 == 200)//장땡이하
+                    if (playerarray1 < 200)//장땡이하
                     {
                         return "draw";
                     }
                     else
                     {
-                        basicwinner(player, ai);
+                        return basicwinner(player, ai);
                     }
                 }
 
@@ -517,7 +574,7 @@ namespace MyGame
             //특수규칙 아닌경우//이새기가문제임???
             else if (playerarray2 == 0)//&& ai ==0도 추가할거임
             {
-                basicwinner(player,ai);
+                return basicwinner(player,ai);
             }
             return "null";
         }
@@ -527,17 +584,14 @@ namespace MyGame
         {
             if (playerjokbo(player)[0] > aijokbo(ai)[0])
             {
-                Console.WriteLine("5땡으로 플레이어 윈");
                 return "playerwin";
             }
             else if (playerjokbo(player)[0] < aijokbo(ai)[0])
             {
-                Console.WriteLine("3땡으로 ai 윈");
                 return "aiwin";
             }
             else if (playerjokbo(player)[0] == aijokbo(ai)[0])
             {
-                Console.WriteLine("draw");
                 return "draw";
             }
 

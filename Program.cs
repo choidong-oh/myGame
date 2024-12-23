@@ -11,9 +11,15 @@ namespace MyGame
         static void Main(string[] args)
         {
             GameMaster gameMaster = new GameMaster();
-
-
             gameMaster.gamestart();
+
+
+
+
+
+
+
+
 
 
 
