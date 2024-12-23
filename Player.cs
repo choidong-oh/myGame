@@ -13,7 +13,8 @@ namespace MyGame
         //리스트를 하고 그 중 맨윗값 추가함
         public Deck deck;
         public List<Card> hascard = new List<Card>();
-        public int hasmoney;
+        public int hasmoney;//소지돈
+        public int playerbettingmoney;//각판 플레이어 배팅 머니
 
         public Player(int money)
         {
@@ -26,6 +27,17 @@ namespace MyGame
         {
             Console.WriteLine("패에 카드 한장 드로우");
             hascard.Add(card);
+            //카드정렬
+            if(hascard.Count >= 2 )
+            {
+                if (hascard[0].CardNum > hascard[1].CardNum)
+                {
+                    int temp = hascard[0].CardNum;
+                    hascard[0].CardNum = hascard[1].CardNum;
+                    hascard[1].CardNum = temp;
+                }
+            }
+            
 
         }
         //덱 초기화

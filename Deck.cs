@@ -17,6 +17,8 @@ namespace MyGame
         //사용덱 초기화, 섞기
         public void shuffledeck()
         {
+
+            //player카드를 정렬
             usedeck.Clear();
             Console.WriteLine("덱 카드 초기화");
             //임시용 카드 대입1~10, 1~10

@@ -15,34 +15,58 @@ namespace MyGame
         Card card = new Card(); 
         WinnerSystem winnerSystem = new WinnerSystem();
         public int totalbettingmoney;//판돈
-        public int basicbettingmoney;//기본배팅금
-
+        public int basicbettingmoney = 1000;//기본배팅금
+        
 
         public void gamestart()
         {
-            player = new Player(10000);
-            ai = new Ai(9000);
+            totalbettingmoney = basicbettingmoney;
+            //판돈 보유
+            player = new Player(51000);
+            ai = new Ai(51000);
 
             //섞고
             deck.shuffledeck();
-            //기본 배팅//만원깍음
+            //기본 배팅//천원깍음
             basicbetting();
 
             //1번째 1장분배
             player.AddCard(deck.drawcard()); 
             ai.AddCard(deck.drawcard());
 
+            //배팅
+            betting();
+
             //2번쨰 1장분배
             player.AddCard(deck.drawcard());
             ai.AddCard(deck.drawcard());
 
-            //승리로직
-            winnerSystem.winner(player,ai);
+            //배팅
+            betting();
 
-            if(winnerSystem.winner(player, ai) == "draw")
+            ///승리로직
+            //winnerSystem.winner(player, ai);
+            if (winnerSystem.winner(player, ai) == "playerwin")
+            {
+                Console.WriteLine("플레이어윈");
+            }
+            else if (winnerSystem.winner(player, ai) == "aiwin")
+            {
+                Console.WriteLine("에이아이 윈");
+            }
+
+            if (winnerSystem.winner(player, ai) == "null")
+            {
+                Console.WriteLine("null반환");
+            }
+
+
+
+            if (winnerSystem.winner(player, ai) == "draw")
             {
                 Console.WriteLine("재경기");
                 //덱에 있는 16장패에서 4장분배
+                //덱에있는 20장으로 바꿔야댐 오류??
                 player.AddCard(deck.drawcard());
                 ai.AddCard(deck.drawcard());
 
@@ -61,20 +85,26 @@ namespace MyGame
             deck.showDack();
         }
 
-        //게임리셋
-        public void gamereset()
+        //배팅클래스로 나누기
+        //player가 선언마다 하면 될듯// 하프,콜,다이 넣으면될듯
+        public void betting()
         {
-            deck.shuffledeck();
-        }
-        //기본배팅
-        public void basicbetting()
-        {
-            basicbettingmoney = 1000;
-            player.hasmoney -= basicbettingmoney; ;
-            ai.hasmoney -= basicbettingmoney;
-            totalbettingmoney = basicbettingmoney * 2;
-        }
+            //예) 하프
+            //기본만 올인 생각안함// 
+            player.playerbettingmoney *=   2;
+            player.hasmoney -= player.playerbettingmoney;
 
+            //콜
+            ai.playerbettingmoney = player.playerbettingmoney;
+            ai.hasmoney -= ai.playerbettingmoney;
+
+            //기본배팅
+            totalbettingmoney +=ai.playerbettingmoney + player.playerbettingmoney;
+
+            Console.WriteLine("배팅함");
+
+
+        }
         public void showgamemoney()
         {
             Console.WriteLine("player money : " + player.hasmoney);
@@ -82,6 +112,31 @@ namespace MyGame
             Console.WriteLine("totalbettingmoney : " + totalbettingmoney);
 
         }
+
+        //게임리셋
+        public void gamereset()
+        {
+            //덱 초기화
+            deck.shuffledeck();
+            //판돈 초기화
+            player.playerbettingmoney = 0;
+            ai.playerbettingmoney = 0;
+            totalbettingmoney = 0;
+            //가지고있는 카드 초기화
+            player.hascard.Clear();
+            ai.hascard.Clear();
+        }
+        //기본배팅
+        public void basicbetting()
+        {
+            //기본금 뺴고, 판돈에 기본금 추가
+            player.hasmoney -= basicbettingmoney;
+            player.playerbettingmoney = basicbettingmoney;
+            ai.hasmoney -= basicbettingmoney;
+            ai.playerbettingmoney = basicbettingmoney;
+            totalbettingmoney = basicbettingmoney * 2;
+        }
+
 
 
 
