@@ -134,9 +134,9 @@ namespace MyGame
 
 
             };
-        public  void PlayerCardnumimage1(int firstcard)
+        public void PlayerCardnumimage1(int firstcard, bool isgwang)
         {
-            if(firstcard <= 10)
+            if (firstcard <= 10)
             {
                 for (int j = 0; j < 7; j++)
                 {
@@ -148,8 +148,15 @@ namespace MyGame
                     Console.WriteLine();
                 }
             }
+            if (isgwang == true)
+            {
+                Console.SetCursorPosition(33, 15);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("■");
+                Console.ResetColor();
+            }
         }
-        public void PlayerCardnumimage2(int secondcard)
+        public void PlayerCardnumimage2(int secondcard,bool isgwang)
         {
             for (int j = 0; j < 7; j++)
             {
@@ -160,9 +167,19 @@ namespace MyGame
                 }
                 Console.WriteLine();
             }
+            if (isgwang == true)
+            {
+                Console.SetCursorPosition(55, 15);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("■");
+                Console.ResetColor();
+            }
+
+
+
         }
 
-        public void AiCardnumimage1(int firstcard)
+        public void AiCardnumimage1(int firstcard,bool isgwang)
         {
             for (int j = 0; j < 7; j++)
             {
@@ -173,10 +190,20 @@ namespace MyGame
                 }
                 Console.WriteLine();
             }
+            if (isgwang == true)
+            {
+                Console.SetCursorPosition(33, 5);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("■");
+                Console.ResetColor();
+            }
+
+
+
 
         }
 
-        public void AiCardnumimage2(int secondcard)
+        public void AiCardnumimage2(int secondcard,bool isgwang)
         {
             for (int j = 0; j < 7; j++)
             {
@@ -187,7 +214,47 @@ namespace MyGame
                 }
                 Console.WriteLine();
             }
+            if (isgwang == true)
+            {
+                Console.SetCursorPosition(55, 5);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("■");
+                Console.ResetColor();
+            }
         }
+
+        public void aiwin()
+        {
+            for (int k = 0; k < 7; k++)
+            {
+                Console.SetCursorPosition(55 , 10 );
+                Console.WriteLine("ai win");
+            }
+
+
+        }
+        public void playerwin()
+        {
+            for (int k = 0; k < 7; k++)
+            {
+                Console.SetCursorPosition(55, 10);
+                Console.WriteLine("player win");
+            }
+
+
+        }
+        public void draw()
+        {
+            for (int k = 0; k < 7; k++)
+            {
+                Console.SetCursorPosition(55, 10);
+                Console.WriteLine("draw 재경기");
+            }
+
+
+        }
+
+
 
 
 

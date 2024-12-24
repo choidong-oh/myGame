@@ -34,9 +34,10 @@ namespace MyGame
                 }
             }
             usedeck[0].isGwang = true;
-            usedeck[3].isGwang = true;
+            usedeck[2].isGwang = true;
+            usedeck[7].isGwang = true;
 
-
+            //랜덤부여
             for (int i = usedeck.Count - 1; i > 0; i--) //인덱스 역순
             {
                 int j = rnd.Next(0, i + 1); // 0부터 i까지 랜덤 인덱스 선택
@@ -65,9 +66,12 @@ namespace MyGame
 
         public void showDack()
         {
+            int count = 1;
             foreach(var ele in usedeck)
             {
-                Console.WriteLine("카드 : " + ele.CardNum);
+                Console.Write(count + " 카드 : " + ele.CardNum);
+                Console.WriteLine("광여부 : " + ele.isGwang);
+                count++;
             }
 
 

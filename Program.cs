@@ -16,7 +16,7 @@ namespace MyGame
             Player myplayer = new Player(100000);
             Ai ai = new Ai(100000);
 
-
+            //draw나올시 ,올인나올시, 이미지
 
             gameMaster.first(myplayer,ai);
             

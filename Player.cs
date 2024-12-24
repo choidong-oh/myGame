@@ -35,6 +35,12 @@ namespace MyGame
                     int temp = hascard[0].CardNum;
                     hascard[0].CardNum = hascard[1].CardNum;
                     hascard[1].CardNum = temp;
+
+                    var temp1 = hascard[0].isGwang;
+                    hascard[0].isGwang = hascard[1].isGwang;
+                    hascard[1].isGwang = temp1;
+
+
                 }
             }
             
