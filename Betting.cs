@@ -21,9 +21,11 @@ namespace MyGame
         }
         public void aibettingname(Player player, Ai ai, GameMaster master, string answer)
         {
+
             switch (answer)
             {
                 case "half":
+
                     Console.WriteLine("half발동");
                     //앞사람 배팅금 + 전체배팅금/2
                     ai.playerbettingmoney = player.playerbettingmoney + master.totalbettingmoney / 2;
@@ -31,24 +33,26 @@ namespace MyGame
                     ai.hasmoney -= ai.playerbettingmoney;
                     master.totalbettingmoney += ai.playerbettingmoney;
                     break;
+
+
                 case "call":
                     Console.WriteLine("call발동");
                     //앞사람 배팅금
-                    ai.playerbettingmoney = player.playerbettingmoney;
 
-                    ai.hasmoney -= ai.playerbettingmoney;
-                    master.totalbettingmoney += ai.playerbettingmoney;
-                    break;
-                case "bbing":
-                    Console.WriteLine("bbing발동");
-                    //기본머니만큼 배팅
-                    ai.playerbettingmoney = master.basicbettingmoney;
+                    ai.playerbettingmoney = player.playerbettingmoney;
 
                     ai.hasmoney -= ai.playerbettingmoney;
                     master.totalbettingmoney += ai.playerbettingmoney;
                     break;
                 case "fold":
                     Console.WriteLine("fold발동");
+                    break;
+                case "allin":
+                    Console.WriteLine("올인");
+                    ai.playerbettingmoney = ai.hasmoney;
+
+                    ai.hasmoney = 0;
+                    master.totalbettingmoney += ai.playerbettingmoney;
                     break;
 
             }
@@ -57,19 +61,23 @@ namespace MyGame
 
 
         }
-
+       
 
 
 
 
         public void playerbettingname(Player player, Ai ai, GameMaster master, string answer)
         {
+            //if트루일때
+            //올인 hasmoney = 0; aisidepot = aibetting-hasmoney; total += hasmoney
+            //콘솔리드키 half안됌
+            //if펄스일때
             switch (answer)
             {
                 case "half":
                     Console.WriteLine("half발동");
                     //앞사람 배팅금 + 전체배팅금/2
-                    player.playerbettingmoney = ai.playerbettingmoney + master.totalbettingmoney/2;
+                    player.playerbettingmoney = ai.playerbettingmoney + master.totalbettingmoney / 2;
 
                     player.hasmoney -= player.playerbettingmoney;
                     master.totalbettingmoney += player.playerbettingmoney;
@@ -82,29 +90,21 @@ namespace MyGame
                     player.hasmoney -= player.playerbettingmoney;
                     master.totalbettingmoney += player.playerbettingmoney;
                     break;
-                case "bbing":
-                    Console.WriteLine("bbing발동");
-                    //기본머니만큼 배팅
-                    player.playerbettingmoney = master.basicbettingmoney;
-
-                    player.hasmoney -= player.playerbettingmoney;
-                    master.totalbettingmoney += player.playerbettingmoney;
-                    break;
                 case "fold":
                     Console.WriteLine("fold발동");
                     break;
+                case "allin":
+                    Console.WriteLine("올인");
+                    player.playerbettingmoney = player.hasmoney;
+
+                    master.totalbettingmoney += player.playerbettingmoney;
+                    break;
+
 
             }
-
-
-
+           
 
         }
-
-
-
-
-
 
 
     }

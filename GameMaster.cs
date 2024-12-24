@@ -39,10 +39,14 @@ namespace MyGame
 
         }
 
-        public void first()
+        
+        public void first(Player out1,Ai out2)
         {
-            ai = new Ai(51000);
-            player = new Player(51000);
+            ai = out2;
+            player = out1;
+            //player,ai할당
+            //Player myplayer = new Player(51000);
+            //Ai ai = new Ai(51000);
         }
 
 
@@ -85,7 +89,7 @@ namespace MyGame
             Console.WriteLine("1배팅 뭐할래? 1번 : 콜, 2번 : 하프, 3번 : 다이");
             a = int.Parse(Console.ReadLine());
             
-            bettingclass.playerbettingname(player,ai,this,"half");
+            bettingclass.playerbettingname(player,ai,this,"allin");
             bettingclass.aibettingname(player, ai, this, "call");
             showprint();
 
@@ -155,16 +159,39 @@ namespace MyGame
             //deck.showDack();//덱카드 확인용
 
             gamereset();
-            showprint();
+            //showprint();
 
 
 
 
         }
 
-        public void gameing()
+        public bool gamefinish()
         {
+            Timedelay(1.5);
+            Console.Clear();
+            if (ai.hasmoney <= 0)
+            {
+                player.hasmoney = 0;
+                Console.WriteLine("============================================");
+                Console.WriteLine("playerwin");
+                Console.WriteLine("playerhasmoney : " + player.hasmoney);
+                Console.WriteLine("============================================");
+                return true;
+            }
+            else if (player.hasmoney <= 0)
+            {
+                ai.hasmoney = 0;
+                Console.WriteLine("============================================");
+                Console.WriteLine("ai win");
+                Console.WriteLine("aihasmoney : " + ai.hasmoney);
+                Console.WriteLine("============================================");
+                return true;
+            }
 
+
+
+            return false;
         }
        
         public void showprint()
