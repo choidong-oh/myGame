@@ -17,6 +17,7 @@ namespace MyGame
         //사용덱 초기화, 섞기
         public void shuffledeck()
         {
+            Random rnd = new Random();
 
             //player카드를 정렬
             usedeck.Clear();
@@ -32,6 +33,23 @@ namespace MyGame
 
                 }
             }
+            usedeck[0].isGwang = true;
+            usedeck[3].isGwang = true;
+
+
+            for (int i = usedeck.Count - 1; i > 0; i--) //인덱스 역순
+            {
+                int j = rnd.Next(0, i + 1); // 0부터 i까지 랜덤 인덱스 선택
+                // 배열 요소 교환
+                var temp = usedeck[i];
+                usedeck[i] = usedeck[j];
+                usedeck[j] = temp;
+            }
+
+
+
+
+
         }
         public Card drawcard()
         {

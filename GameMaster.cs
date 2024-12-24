@@ -127,29 +127,29 @@ namespace MyGame
             if (winnerSystemclass.winner(player, ai) == "playerwin")
             {
                 Console.Clear();
-                //cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum);
-                //cardIMageclass.PlayerCardnumimage2(player.hascard[1].CardNum);
-                player.hasmoney += totalbettingmoney;
                 showprint();
+                cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum);
+                cardIMageclass.PlayerCardnumimage2(player.hascard[1].CardNum);
+                player.hasmoney += totalbettingmoney;
                 //Console.WriteLine("플레이어윈");
             }
             else if (winnerSystemclass.winner(player, ai) == "aiwin")
             {
                 Console.Clear();
+                showprint();
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum);
                 cardIMageclass.AiCardnumimage2(ai.hascard[1].CardNum);
                 ai.hasmoney += totalbettingmoney;
-                showprint();
                 //Console.WriteLine("에이아이 윈");
             }
             else if (winnerSystemclass.winner(player, ai) == "draw")
             {
                 Console.Clear();
+                showprint();
                 cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum);
                 cardIMageclass.PlayerCardnumimage2(player.hascard[1].CardNum);
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum);
                 cardIMageclass.AiCardnumimage2(ai.hascard[1].CardNum);
-                showprint();
                 //Console.WriteLine("드로우");
             }
             else if (winnerSystemclass.winner(player, ai) == "null")
