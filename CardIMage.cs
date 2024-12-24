@@ -8,6 +8,7 @@ namespace MyGame
 {
     internal class CardIMage
     {
+        //카드이미지
         string[,,] str = new string[11, 7, 7]
             {
                 //1

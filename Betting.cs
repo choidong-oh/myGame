@@ -11,50 +11,96 @@ namespace MyGame
        
         public void basicbetting(Player player,Ai ai, GameMaster master)
         {
-            int two = 2;
             //기본금 뺴고, 판돈에 기본금 추가
             player.hasmoney -= master.basicbettingmoney;
             player.playerbettingmoney = master.basicbettingmoney;
             ai.hasmoney -= master.basicbettingmoney;
             ai.playerbettingmoney = master.basicbettingmoney;
-            master.totalbettingmoney =master.basicbettingmoney*two;
+            master.totalbettingmoney =master.basicbettingmoney*2;
             Console.WriteLine("master.totalbettingmoney : "+ master.totalbettingmoney);
         }
-
-
-
-
-        public void bettingname(Player player, Ai ai, GameMaster master,string answer)
+        public void aibettingname(Player player, Ai ai, GameMaster master, string answer)
         {
-            
-            //예) 하프
-            if (answer == "half")
+            switch (answer)
             {
-                //앞사람 배팅금 + 전체배팅금/2
-                player.playerbettingmoney = ai.playerbettingmoney + master.totalbettingmoney;
+                case "half":
+                    Console.WriteLine("half발동");
+                    //앞사람 배팅금 + 전체배팅금/2
+                    ai.playerbettingmoney = player.playerbettingmoney + master.totalbettingmoney / 2;
 
-                player.hasmoney -= player.playerbettingmoney;
-                master.totalbettingmoney += player.playerbettingmoney;
-            }
-            else if (answer == "call")
-            {
-                //앞사람 배팅금
-                player.playerbettingmoney = ai.playerbettingmoney;
+                    ai.hasmoney -= ai.playerbettingmoney;
+                    master.totalbettingmoney += ai.playerbettingmoney;
+                    break;
+                case "call":
+                    Console.WriteLine("call발동");
+                    //앞사람 배팅금
+                    ai.playerbettingmoney = player.playerbettingmoney;
 
-                player.hasmoney -= player.playerbettingmoney;
-                master.totalbettingmoney += player.playerbettingmoney;
-            }
-            else if (answer == "bbing")
-            {
-                //기본머니만큼 배팅
-                player.playerbettingmoney = master.basicbettingmoney;
+                    ai.hasmoney -= ai.playerbettingmoney;
+                    master.totalbettingmoney += ai.playerbettingmoney;
+                    break;
+                case "bbing":
+                    Console.WriteLine("bbing발동");
+                    //기본머니만큼 배팅
+                    ai.playerbettingmoney = master.basicbettingmoney;
+
+                    ai.hasmoney -= ai.playerbettingmoney;
+                    master.totalbettingmoney += ai.playerbettingmoney;
+                    break;
+                case "fold":
+                    Console.WriteLine("fold발동");
+                    break;
 
             }
-            else if (answer == "fold")
-            {
-                //die
-            }
+
+
+
+
         }
+
+
+
+
+
+        public void playerbettingname(Player player, Ai ai, GameMaster master, string answer)
+        {
+            switch (answer)
+            {
+                case "half":
+                    Console.WriteLine("half발동");
+                    //앞사람 배팅금 + 전체배팅금/2
+                    player.playerbettingmoney = ai.playerbettingmoney + master.totalbettingmoney/2;
+
+                    player.hasmoney -= player.playerbettingmoney;
+                    master.totalbettingmoney += player.playerbettingmoney;
+                    break;
+                case "call":
+                    Console.WriteLine("call발동");
+                    //앞사람 배팅금
+                    player.playerbettingmoney = ai.playerbettingmoney;
+
+                    player.hasmoney -= player.playerbettingmoney;
+                    master.totalbettingmoney += player.playerbettingmoney;
+                    break;
+                case "bbing":
+                    Console.WriteLine("bbing발동");
+                    //기본머니만큼 배팅
+                    player.playerbettingmoney = master.basicbettingmoney;
+
+                    player.hasmoney -= player.playerbettingmoney;
+                    master.totalbettingmoney += player.playerbettingmoney;
+                    break;
+                case "fold":
+                    Console.WriteLine("fold발동");
+                    break;
+
+            }
+
+
+
+
+        }
+
 
 
 

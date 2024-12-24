@@ -39,13 +39,21 @@ namespace MyGame
 
         }
 
+        public void first()
+        {
+            ai = new Ai(51000);
+            player = new Player(51000);
+        }
 
 
 
         public void gamestart()
         {
-            ai = new Ai(51000);
-            player = new Player(51000);
+            //ai = new Ai(51000);
+            //player = new Player(51000);
+
+            Console.WriteLine("처음메인 아무거나 누르셈");
+            Console.ReadLine();
 
             //1. 메인창
             showprint();
@@ -72,13 +80,13 @@ namespace MyGame
             cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum);
             Timedelay(1);
 
-
             //4. 1번째 배팅
             Console.SetCursorPosition(0, 27);
-            Console.WriteLine("배팅 뭐할래? 1번 : 콜, 2번 : 하프, 3번 : 다이");
+            Console.WriteLine("1배팅 뭐할래? 1번 : 콜, 2번 : 하프, 3번 : 다이");
             a = int.Parse(Console.ReadLine());
-            betting();
-            bettingclass.bettingname(player,ai,this,"half");
+            
+            bettingclass.playerbettingname(player,ai,this,"half");
+            bettingclass.aibettingname(player, ai, this, "call");
             showprint();
 
 
@@ -99,9 +107,12 @@ namespace MyGame
 
             //6. 2번쨰 배팅
             Console.SetCursorPosition(0, 27);
-            Console.WriteLine("배팅 뭐할래? 1번 : 콜, 2번 : 하프, 3번 : 다이");
+            Console.WriteLine("2배팅 뭐할래? 1번 : 콜, 2번 : 하프, 3번 : 다이");
             a = int.Parse(Console.ReadLine());
-            betting();
+            bettingclass.playerbettingname(player, ai, this, "half");
+            bettingclass.aibettingname(player, ai, this, "call");
+            showprint();
+            Timedelay(1.5);
 
             Console.Clear();
             Console.WriteLine("승리 판결 ing~");
@@ -112,27 +123,29 @@ namespace MyGame
             if (winnerSystemclass.winner(player, ai) == "playerwin")
             {
                 Console.Clear();
+                //cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum);
+                //cardIMageclass.PlayerCardnumimage2(player.hascard[1].CardNum);
+                player.hasmoney += totalbettingmoney;
                 showprint();
-                cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum);
-                cardIMageclass.PlayerCardnumimage2(player.hascard[1].CardNum);
                 //Console.WriteLine("플레이어윈");
             }
             else if (winnerSystemclass.winner(player, ai) == "aiwin")
             {
                 Console.Clear();
-                showprint();
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum);
                 cardIMageclass.AiCardnumimage2(ai.hascard[1].CardNum);
+                ai.hasmoney += totalbettingmoney;
+                showprint();
                 //Console.WriteLine("에이아이 윈");
             }
             else if (winnerSystemclass.winner(player, ai) == "draw")
             {
                 Console.Clear();
-                showprint();
                 cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum);
                 cardIMageclass.PlayerCardnumimage2(player.hascard[1].CardNum);
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum);
                 cardIMageclass.AiCardnumimage2(ai.hascard[1].CardNum);
+                showprint();
                 //Console.WriteLine("드로우");
             }
             else if (winnerSystemclass.winner(player, ai) == "null")
@@ -140,6 +153,13 @@ namespace MyGame
                 Console.WriteLine("null반환");
             }
             //deck.showDack();//덱카드 확인용
+
+            gamereset();
+            showprint();
+
+
+
+
         }
 
         public void gameing()
@@ -151,7 +171,8 @@ namespace MyGame
         {
             Console.Clear();
             Console.WriteLine("AI");
-            Console.WriteLine("aimoney : " + ai.hasmoney);
+            Console.Write("aimoney : " + ai.hasmoney);
+            Console.WriteLine(" aibettingmoney : " + ai.playerbettingmoney);
             Console.WriteLine();
             Console.WriteLine("=============================");
             Console.SetCursorPosition(8, 8);
@@ -165,7 +186,8 @@ namespace MyGame
             Console.WriteLine();
             Console.WriteLine("=============================");
             Console.WriteLine("Player");
-            Console.WriteLine("playermoney : " + player.hasmoney);
+            Console.Write("playermoney : " + player.hasmoney);
+            Console.WriteLine(" playerbettingmoney : " + player.playerbettingmoney);
 
 
         }
@@ -189,26 +211,6 @@ namespace MyGame
        
 
 
-        //배팅클래스로 나누기
-        //player가 선언마다 하면 될듯// 하프,콜,다이 넣으면될듯
-        public void betting()
-        {
-            //예) 하프
-            //기본만 올인 생각안함// 
-            player.playerbettingmoney *=   2;
-            player.hasmoney -= player.playerbettingmoney;
-
-            //콜
-            ai.playerbettingmoney = player.playerbettingmoney;
-            ai.hasmoney -= ai.playerbettingmoney;
-
-            //기본배팅
-            totalbettingmoney +=ai.playerbettingmoney + player.playerbettingmoney;
-
-            Console.WriteLine("배팅함");
-
-
-        }
         public void showgamemoney()
         {
             Console.WriteLine("player money : " + player.hasmoney);
@@ -229,6 +231,8 @@ namespace MyGame
             //가지고있는 카드 초기화
             player.hascard.Clear();
             ai.hascard.Clear();
+            Timedelay(1.5);
+            Console.Clear();
         }
 
     }
