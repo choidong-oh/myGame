@@ -46,31 +46,7 @@ namespace MyGame
             
 
         }
-        //덱 초기화
-        public void clercard()
-        {
-            Console.WriteLine("패에 카드 초기화");
-            hascard.Clear();
-        }
-
-
-
-        
-
-        //가지고있는돈이 0원이면
-        public void nomoney(int havemoney)
-        {
-            if (hasmoney <= 0)
-            {
-                hasmoney = 0;
-                Console.WriteLine("오링~~~~!!!!!");
-            }
-        }
-
-
-
-
-
+       
 
     }
 }

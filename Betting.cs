@@ -41,7 +41,6 @@ namespace MyGame
                         }
                         else if (ai.hasmoney > player.playerbettingmoney)
                         {
-
                             Console.WriteLine("half발동");
                             //앞사람 배팅금 + 전체배팅금/2
                             ai.playerbettingmoney = player.playerbettingmoney + master.totalbettingmoney / 2;
@@ -57,15 +56,17 @@ namespace MyGame
                         {
                             ai.playerbettingmoney =  ai.hasmoney;
                             ai.hasmoney = 0;
+                            staticaibettingname = "all in";
                         }
+                
                         else if (ai.hasmoney > player.playerbettingmoney)
                         {
                             ai.playerbettingmoney = player.playerbettingmoney;
                             ai.hasmoney -= ai.playerbettingmoney;
+                            staticaibettingname = "call";
                         }
 
                         master.totalbettingmoney += ai.playerbettingmoney;
-                        staticaibettingname = "call";
                         break;
                     case 3:
                         staticaibettingname = "fold";
@@ -137,14 +138,15 @@ namespace MyGame
                         {
                             player.playerbettingmoney = player.hasmoney;
                             player.hasmoney = 0;
+                            staticplayerbettingname = "all in";
                         }
                         else if (player.hasmoney > ai.playerbettingmoney)
                         {
                             player.playerbettingmoney = ai.playerbettingmoney;
                             player.hasmoney -= player.playerbettingmoney;
+                            staticplayerbettingname = "call";
                         }
                         master.totalbettingmoney += player.playerbettingmoney;
-                        staticplayerbettingname = "call";
                         break;
                     case 3:
                         Console.WriteLine("fold발동");

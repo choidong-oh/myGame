@@ -12,14 +12,13 @@ namespace MyGame
     {
         static void Main(string[] args)
         {
+            //사이드팟, 
             GameMaster gameMaster = new GameMaster();
             Player myplayer = new Player(100000);
             Ai ai = new Ai(100000);
 
-            //draw나올시 ,올인나올시, 이미지
 
-            gameMaster.first(myplayer,ai);
-
+            gameMaster.first(myplayer,ai);//player,ai의 값을 할당
             gameMaster.fristmainbackground();
             while (true)
             {

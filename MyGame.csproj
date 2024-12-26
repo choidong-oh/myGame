@@ -49,7 +49,6 @@
     <Compile Include="CardIMage.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="GameMaster.cs" />
-    <Compile Include="Money.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

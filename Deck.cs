@@ -66,7 +66,7 @@ namespace MyGame
 
 
 
-
+        //덱카드 확인용
         public void showDack()
         {
             int count = 1;

@@ -9,6 +9,7 @@ namespace MyGame
     internal class CardIMage
     {
         //카드이미지
+        WinnerSystem WinnerSystem;
         string[,,] str = new string[11, 7, 7]
             {
                 //1
@@ -198,9 +199,6 @@ namespace MyGame
                 Console.ResetColor();
             }
 
-
-
-
         }
 
         public void AiCardnumimage2(int secondcard,bool isgwang)
@@ -223,38 +221,7 @@ namespace MyGame
             }
         }
 
-        public void aiwin()
-        {
-            for (int k = 0; k < 7; k++)
-            {
-                Console.SetCursorPosition(55 , 10 );
-                Console.WriteLine("ai win");
-            }
-
-
-        }
-        public void playerwin()
-        {
-            for (int k = 0; k < 7; k++)
-            {
-                Console.SetCursorPosition(55, 10);
-                Console.WriteLine("player win");
-            }
-
-
-        }
-        public void draw()
-        {
-
-            Console.SetCursorPosition(55, 10);
-            Console.WriteLine("draw 재경기");
-            GameMaster.Timedelay(1.5);
-            
-
-
-        }
-
-
+       
 
 
 
