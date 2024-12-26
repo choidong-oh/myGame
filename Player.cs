@@ -25,7 +25,7 @@ namespace MyGame
         //덱에 한장 추가
         public void AddCard(Card card)
         {
-            Console.WriteLine("패에 카드 한장 드로우");
+           // Console.WriteLine("패에 카드 한장 드로우");
             hascard.Add(card);
             //카드정렬
             if(hascard.Count >= 2 )

@@ -211,13 +211,6 @@ namespace MyGame
                 jokboarray.Add(0);
                 return jokboarray;//7끗17
             }
-            ////족보 넣기
-            //if (has1 != player.hascard[1])
-            //{
-            //    return 50;// "5ttang";
-            //}
-
-
              return jokboarray;// "5ttang";
         }
 
@@ -418,11 +411,6 @@ namespace MyGame
                 jokboarray.Add(0);
                 return jokboarray;//7끗17
             }
-            ////족보 넣기
-            //if (has1 != player.hascard[1])
-            //{
-            //    return 50;// "5ttang";
-            //}
 
 
             return jokboarray;// "5ttang";

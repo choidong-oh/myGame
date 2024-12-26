@@ -19,14 +19,21 @@ namespace MyGame
             //draw나올시 ,올인나올시, 이미지
 
             gameMaster.first(myplayer,ai);
-            
 
+            gameMaster.fristmainbackground();
             while (true)
             {
                 gameMaster.gamestart();
-                if (gameMaster.gamefinish() == true)
-                { 
-                    break;
+                if (GameMaster.isdraw == true)
+                {
+
+                }
+                else if (GameMaster.isdraw == false)
+                {
+                    if (gameMaster.gamefinish() == true)
+                    {
+                        break;
+                    }
                 }
             }
 

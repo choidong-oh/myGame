@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MyGame
 {
@@ -20,14 +21,18 @@ namespace MyGame
         public int totalbettingmoney;//판돈
         public int basicbettingmoney = 1000;//기본배팅금
         Betting bettingclass = new Betting();
-        string playeranswerbettingname;
-        string aianswerbettingname;
+        public static string playeranswerbettingname;
+        public static string aianswerbettingname;
+        
+
+
+        public static bool isdraw = false;
         public void testnum()
-        {
+        { 
             //37 47 49
-            player.hascard[0].CardNum = 3;
+            player.hascard[0].CardNum = 4;
             player.hascard[0].isGwang = true;
-            player.hascard[1].CardNum = 8;
+            player.hascard[1].CardNum = 9;
             player.hascard[1].isGwang = true;
 
 
@@ -41,70 +46,61 @@ namespace MyGame
 
         }
 
-        
-        public void first(Player out1,Ai out2)
-        {
-            ai = out2;
-            player = out1;
-            //player,ai할당
-            //Player myplayer = new Player(51000);
-            //Ai ai = new Ai(51000);
-        }
-
-
 
         public void gamestart()
         {
             while (true)
             {
-                
-                Console.WriteLine("처음메인 아무거나 누르셈");
-                Console.ReadLine();
+
 
                 //1. 메인창
                 showprint();
-                Timedelay(2);
-                totalbettingmoney = basicbettingmoney;
                 deck.shuffledeck();//섞고
+                Timedelay(1);
 
-
-                //2. 기본배팅창
-                Console.WriteLine("기본 배팅 할거면 1번");
-                int a = int.Parse(Console.ReadLine());
-                bettingclass.basicbetting(player, ai, this);
+                if (isdraw == false)
+                {
+                    //2. 기본배팅창
+                    totalbettingmoney = basicbettingmoney;
+                    Console.WriteLine("기본 배팅 할거면 1번");
+                    int a = int.Parse(Console.ReadLine());
+                    bettingclass.basicbetting(player, ai, this);
+                }
                 showprint();
                 Timedelay(1);
+
 
 
 
                 //3. 1번째 카드분배, 이미지
                 player.AddCard(deck.drawcard());
                 ai.AddCard(deck.drawcard());
-                showprint();
                 cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum, player.hascard[0].isGwang);
                 Timedelay(0.5);
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum, ai.hascard[0].isGwang);
                 Timedelay(1);
 
                 //4. 1번째 배팅
-                Console.SetCursorPosition(0, 27);
-                Console.WriteLine("1배팅 뭐할래? 1번 : 하프, 2번 : 콜, 3번 : 다이, 4번 : 올인");
-                a = int.Parse(Console.ReadLine());
-                //player선택
-               
-                if (a == 3)
+                if (bettingclass.playerbettingname(player, ai, this) == 3)//다이시 리겜
                 {
                     playeranswerbettingname = "die";
                     ai.hasmoney += totalbettingmoney;
                     showprint();
                     cardIMageclass.aiwin();
                     Timedelay(5);
+                    gamereset();
                     break;
                 }
-
-
-                bettingclass.playerbettingname(player, ai, this, a);
-                bettingclass.aibettingname(player, ai, this, 2);
+                if (bettingclass.aibettingname(player, ai, this) == 3)//다이시 리겜
+                {
+                    aianswerbettingname = "die";
+                    player.hasmoney += totalbettingmoney;
+                    showprint();
+                    cardIMageclass.playerwin();
+                    Timedelay(5);
+                    gamereset();
+                    break;
+                }
                 showprint();
 
 
@@ -121,33 +117,50 @@ namespace MyGame
                 Timedelay(1);
 
                 //임의 카드 수정
-                //testnum();
+                testnum();
 
                 //6. 2번쨰 배팅
-                Console.SetCursorPosition(0, 27);
-                Console.WriteLine("1배팅 뭐할래? 1번 : 하프, 2번 : 콜, 3번 : 다이, 4번 : 올인");
-                a = int.Parse(Console.ReadLine());
-                if (a == 3)//player 3다이
+                if (bettingclass.playerbettingname(player, ai, this) == 3)//다이시 리겜
                 {
                     playeranswerbettingname = "die";
                     ai.hasmoney += totalbettingmoney;
                     showprint();
                     cardIMageclass.aiwin();
-                    Timedelay(5);
+                    Timedelay(3);
+                    gamereset();
                     break;
                 }
-                bettingclass.playerbettingname(player, ai, this, 1);
-                bettingclass.aibettingname(player, ai, this, 2);
+                if (bettingclass.aibettingname(player, ai, this) == 3)//다이시 리겜
+                {
+                    aianswerbettingname = "die";
+                    player.hasmoney += totalbettingmoney;
+                    showprint();
+                    cardIMageclass.playerwin();
+                    Timedelay(3);
+                    gamereset();
+                    break;
+                }
                 showprint();
-                Timedelay(1.5);
-
-
-
-                Console.Clear();
+                Console.SetCursorPosition(55, 10);
                 Console.WriteLine("승리 판결 ing~");
                 Timedelay(3);
                 bagwinner();
+                showprint();
+                //draw시 재경기
+                if (isdraw == true)
+                {
+                    break;
+                }
+                else if(isdraw == false)
+                {
+                    if (gamefinish() == true)
+                    {
+                        break;
+                    }
+                }
+
                 gamereset();
+               
             }
 
             //7.승판결로직 이미지 // 이긴쪽 보여주기
@@ -158,8 +171,25 @@ namespace MyGame
 
 
 
-
         }
+
+        public void first(Player out1, Ai out2)
+        {
+            ai = out2;
+            player = out1;
+            //player,ai할당
+            //Player myplayer = new Player(51000);
+            //Ai ai = new Ai(51000);
+        }
+
+        public void fristmainbackground()
+        {
+
+            Console.WriteLine("싱글 섯다");
+            Console.WriteLine("아무거나 눌르세요");
+            Console.ReadLine();
+        }
+
 
         public void playerfold()
         {
@@ -191,11 +221,14 @@ namespace MyGame
                 Console.Clear();
                 showprint();
                 cardIMageclass.draw();
+                isdraw = true;
             }
             else if (winnerSystemclass.winner(player, ai) == "null")
             {
                 Console.WriteLine("null반환");
             }
+
+
         }
 
 
@@ -207,7 +240,6 @@ namespace MyGame
                 showprint();
                 cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum, player.hascard[0].isGwang);
                 player.hasmoney += totalbettingmoney;
-                //Console.WriteLine("플레이어윈");
             }
             else if (winnerSystemclass.winner(player, ai) == "aiwin")
             {
@@ -215,7 +247,6 @@ namespace MyGame
                 showprint();
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum, ai.hascard[0].isGwang);
                 ai.hasmoney += totalbettingmoney;
-                //Console.WriteLine("에이아이 윈");
             }
             else if (winnerSystemclass.winner(player, ai) == "draw")
             {
@@ -223,7 +254,7 @@ namespace MyGame
                 showprint();
                 cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum, player.hascard[0].isGwang);
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum, ai.hascard[0].isGwang);
-                //Console.WriteLine("드로우");
+                isdraw = true;
             }
             else if (winnerSystemclass.winner(player, ai) == "null")
             {
@@ -232,13 +263,11 @@ namespace MyGame
         }
 
 
-        public bool gamefinish()
+        public  bool gamefinish()
         {
-            Timedelay(1.5);
             Console.Clear();
             if (ai.hasmoney <= 0)
             {
-                player.hasmoney = 0;
                 Console.WriteLine("============================================");
                 Console.WriteLine("playerwin");
                 Console.WriteLine("playerhasmoney : " + player.hasmoney);
@@ -247,7 +276,6 @@ namespace MyGame
             }
             else if (player.hasmoney <= 0)
             {
-                ai.hasmoney = 0;
                 Console.WriteLine("============================================");
                 Console.WriteLine("ai win");
                 Console.WriteLine("aihasmoney : " + ai.hasmoney);
@@ -268,6 +296,7 @@ namespace MyGame
             Console.WriteLine(" aibettingmoney : " + ai.playerbettingmoney);
             Console.WriteLine();
             Console.WriteLine("=============================");
+            Console.WriteLine("ai betting : " + Betting.staticaibettingname);
             Console.SetCursorPosition(8, 8);
             Console.WriteLine(">ai카드");
             Console.SetCursorPosition(8, 13);
@@ -276,7 +305,7 @@ namespace MyGame
             Console.WriteLine(">player카드");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("player betting : " + Betting.staticplayerbettingname);
             Console.WriteLine("=============================");
             Console.WriteLine("Player");
             Console.Write("playermoney : " + player.hasmoney);
@@ -286,7 +315,7 @@ namespace MyGame
         }
 
         //~초 기달림
-        static void Timedelay(double second)
+        public static void Timedelay(double second)
         {
             Stopwatch watch = new Stopwatch();
             //시간=0
@@ -315,8 +344,7 @@ namespace MyGame
         //게임리셋
         public void gamereset()
         {
-            //덱 초기화
-            deck.shuffledeck();
+            Console.Clear();
             //판돈 초기화
             player.playerbettingmoney = 0;
             ai.playerbettingmoney = 0;
@@ -324,7 +352,9 @@ namespace MyGame
             //가지고있는 카드 초기화
             player.hascard.Clear();
             ai.hascard.Clear();
-            Timedelay(1.5);
+            isdraw = false;
+            Betting.staticplayerbettingname = "";
+            Betting.staticaibettingname = "";
             Console.Clear();
         }
 

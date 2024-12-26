@@ -245,11 +245,11 @@ namespace MyGame
         }
         public void draw()
         {
-            for (int k = 0; k < 7; k++)
-            {
-                Console.SetCursorPosition(55, 10);
-                Console.WriteLine("draw 재경기");
-            }
+
+            Console.SetCursorPosition(55, 10);
+            Console.WriteLine("draw 재경기");
+            GameMaster.Timedelay(1.5);
+            
 
 
         }

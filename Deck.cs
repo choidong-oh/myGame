@@ -21,7 +21,9 @@ namespace MyGame
 
             //player카드를 정렬
             usedeck.Clear();
+            Console.SetCursorPosition(55, 10);
             Console.WriteLine("덱 카드 초기화");
+            Console.SetCursorPosition(0, 27);
             //임시용 카드 대입1~10, 1~10
             for (int i = 0; i < 2; i++)
             {
@@ -47,14 +49,15 @@ namespace MyGame
                 usedeck[j] = temp;
             }
 
-
+            Betting.staticplayerbettingname = "";
+            Betting.staticaibettingname = "";
 
 
 
         }
         public Card drawcard()
         {
-            Console.WriteLine("카드 한장 뽑음");
+            //Console.WriteLine("카드 한장 뽑음");
             //마지막 패 뽑고 반환
             var temp = usedeck.Last();
             usedeck.Remove(temp);
