@@ -12,7 +12,7 @@ namespace MyGame
     {
         static void Main(string[] args)
         {
-            //사이드팟, 시간상 각각의족보이름
+            //사이드팟, ai배팅
             GameMaster gameMaster = new GameMaster();
             Player myplayer = new Player(100000);
             Ai ai = new Ai(100000);

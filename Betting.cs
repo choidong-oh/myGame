@@ -97,26 +97,34 @@ namespace MyGame
         {
             int answer;
 
-
             while (true)
             {
-                Console.SetCursorPosition(0, 27);
-                Console.WriteLine("                                                            ");
-                Console.WriteLine("배팅 뭐할래? 1번 : Half, 2번 : Call, 3번 : Fold, 4번 : All IN");
-                Console.SetCursorPosition(0, 27);
-                answer = int.Parse(Console.ReadLine());
+                while (true)
+                {
+
+                    Console.SetCursorPosition(0, 27);
+                    Console.WriteLine("  ");
+                    Console.WriteLine("배팅 하세요 // 1번 : Half, 2번 : Call, 3번 : Fold, 4번 : All IN");
+                    Console.SetCursorPosition(0, 27);
+                    int.TryParse(Console.ReadLine(), out answer);
+                    if (answer <= 4 && answer > 0)
+                    {
+                        break;
+                    }
+                    Console.SetCursorPosition(0, 26);
+                    Console.WriteLine("                                             ");
+                 
+
+                }
+                
                 switch (answer)
                 {
                     case 1:
-                        if(staticaibettingname == "All In")
+                        
+                        if (player.hasmoney <= ai.playerbettingmoney|| staticaibettingname == "All In")
                         {
-                            Console.WriteLine("콜,다이 만됌");
-                            continue;
-                        }
-                        else if (player.hasmoney <= ai.playerbettingmoney)
-                        {
-                            Console.WriteLine("배팅할 돈이 안됩니다. 다시 선택 해주세요");
-                            GameMaster.Timedelay(2);
+                            Console.SetCursorPosition(5, 27);
+                            Console.WriteLine("(배팅할 돈이 안됩니다. 다시 선택 해주세요)");
                             continue;
                         }
                         else if (player.hasmoney > ai.playerbettingmoney)

@@ -25,9 +25,9 @@ namespace MyGame
         public void testnum()
         { 
             //37 47 49
-            player.hascard[0].CardNum = 4;
+            player.hascard[0].CardNum = 3;
             player.hascard[0].isGwang = true;
-            player.hascard[1].CardNum = 9;
+            player.hascard[1].CardNum = 8;
             player.hascard[1].isGwang = true;
 
 
@@ -57,8 +57,9 @@ namespace MyGame
                     totalbettingmoney = basicbettingmoney;
                     while (true)
                     {
+                        Console.SetCursorPosition(0, 28);
+                        Console.WriteLine("기본 배팅 : 1000원 (참여시 1번 눌르세요)");
                         Console.SetCursorPosition(0, 26);
-                        Console.WriteLine("기본 배팅 할거면 1번");
                         int.TryParse(Console.ReadLine(), out int a);
                         if (a == 1)
                         {
@@ -227,11 +228,84 @@ namespace MyGame
 
         public void fristmainbackground()
         {
+            Console.SetCursorPosition(22,5);
+            Console.WriteLine("====================================");
+            Console.SetCursorPosition(22,6);
+            Console.WriteLine("        환영합니다! 섯다 게임");
+            Console.SetCursorPosition(22,7);
+            Console.WriteLine("====================================");
+            Console.SetCursorPosition(22,8);
+            //Console.WriteLine("       아무 키나 눌러 주세요.");
+            Console.SetCursorPosition(22,9);
+            Console.WriteLine("====================================");
+            Console.SetCursorPosition(30, 15);
+            Console.WriteLine("1. 새로운 게임 ◁");
+            Console.SetCursorPosition(30, 17);
+            Console.WriteLine("2. 이어하기");
+            Console.SetCursorPosition(30, 19);
+            Console.WriteLine("3. 환경설정");
+            Console.SetCursorPosition(30, 21);
+            Console.WriteLine("4. 종료");
 
-            Console.WriteLine("싱글 섯다");
-            Console.WriteLine("아무거나 눌르세요");
-            Console.ReadLine();
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(46,15);
+            Console.ReadKey();
+            Console.CursorVisible = true;
         }
+        public void fristmainbackground1()
+        {
+            Console.SetCursorPosition(22, 5);
+            Console.WriteLine("====================================");
+            Console.SetCursorPosition(22, 6);
+            Console.SetCursorPosition(22, 7);
+            Console.WriteLine("     축하합니다! AI를 이겼습니다");
+            //Console.WriteLine("====================================");
+            Console.SetCursorPosition(22, 8);
+            //Console.WriteLine("       아무 키나 눌러 주세요.");
+            Console.SetCursorPosition(22, 9);
+            Console.WriteLine("====================================");
+            Console.SetCursorPosition(30, 15);
+            Console.WriteLine("1. 메인 화면");
+            Console.SetCursorPosition(30, 17);
+            Console.WriteLine("2. 난이도 상승 ◁");
+            Console.SetCursorPosition(30, 19);
+            Console.WriteLine("3. 환경설정");
+            Console.SetCursorPosition(30, 21);
+            Console.WriteLine("4. 종료");
+
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(46, 15);
+            Console.ReadKey();
+            Console.CursorVisible = true;
+        }
+        public void fristmainbackground2()
+        {
+            Console.SetCursorPosition(22, 5);
+            Console.WriteLine("====================================");
+            Console.SetCursorPosition(22, 6);
+            Console.SetCursorPosition(22, 7);
+            //Console.WriteLine("     축하합니다! AI를 이겼습니다");
+            Console.WriteLine("          You Lose! AI Win ");
+            //Console.WriteLine("====================================");
+            Console.SetCursorPosition(22, 8);
+            //Console.WriteLine("       아무 키나 눌러 주세요.");
+            Console.SetCursorPosition(22, 9);
+            Console.WriteLine("====================================");
+            Console.SetCursorPosition(30, 15);
+            Console.WriteLine("1. 메인 화면 ◁");
+            Console.SetCursorPosition(30, 17);
+            Console.WriteLine("2. 재대결  ");
+            Console.SetCursorPosition(30, 19);
+            Console.WriteLine("3. 환경설정");
+            Console.SetCursorPosition(30, 21);
+            Console.WriteLine("4. 종료");
+
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(46, 15);
+            Console.ReadKey();
+            Console.CursorVisible = true;
+        }
+
 
         public void bagwinner()
         {
@@ -272,18 +346,12 @@ namespace MyGame
             Console.Clear();
             if (ai.hasmoney <= 0)
             {
-                Console.WriteLine("============================================");
-                Console.WriteLine("playerwin");
-                Console.WriteLine("playerhasmoney : " + player.hasmoney);
-                Console.WriteLine("============================================");
+                fristmainbackground1();
                 return true;
             }
             else if (player.hasmoney <= 0)
             {
-                Console.WriteLine("============================================");
-                Console.WriteLine("ai win");
-                Console.WriteLine("aihasmoney : " + ai.hasmoney);
-                Console.WriteLine("============================================");
+                fristmainbackground2();
                 return true;
             }
 
