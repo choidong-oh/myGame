@@ -239,7 +239,7 @@ namespace MyGame
             Console.SetCursorPosition(22,9);
             Console.WriteLine("====================================");
             Console.SetCursorPosition(30, 15);
-            Console.WriteLine("1. 새로운 게임 ◁");
+            Console.WriteLine("1. 새로운 게임");
             Console.SetCursorPosition(30, 17);
             Console.WriteLine("2. 이어하기");
             Console.SetCursorPosition(30, 19);
@@ -247,9 +247,53 @@ namespace MyGame
             Console.SetCursorPosition(30, 21);
             Console.WriteLine("4. 종료");
 
-            Console.CursorVisible = false;
-            Console.SetCursorPosition(46,15);
-            Console.ReadKey();
+            ConsoleKeyInfo mykey;
+            int y = 15;
+            int x = 45;
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine("◁");
+            while (true)
+            {
+                Console.CursorVisible = false;
+
+                mykey = Console.ReadKey(true);
+
+                Console.SetCursorPosition(x, y);
+                Console.WriteLine("                  ");
+                if (mykey.Key == ConsoleKey.DownArrow)
+                {
+                   
+                   
+                    y = y + 2;
+                    if (y > 21)
+                    {
+                        y = 21;
+                    }
+                    
+                }
+                else if (mykey.Key == ConsoleKey.UpArrow)
+                {
+                   
+                    y = y - 2;
+                    if (y <= 14)
+                    {
+                        y = 15;
+                    }
+                    
+                }
+                else if (mykey.Key == ConsoleKey.Enter)
+                {
+                    break;
+                }
+
+                Console.SetCursorPosition(x, y);
+                Console.WriteLine("◁");
+
+            }
+
+
+         
+
             Console.CursorVisible = true;
         }
         public void fristmainbackground1()
