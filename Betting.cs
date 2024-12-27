@@ -41,14 +41,14 @@ namespace MyGame
                         }
                         else if (ai.hasmoney > player.playerbettingmoney)
                         {
-                            Console.WriteLine("half발동");
+                            Console.WriteLine("Half발동");
                             //앞사람 배팅금 + 전체배팅금/2
                             ai.playerbettingmoney = player.playerbettingmoney + master.totalbettingmoney / 2;
 
                             ai.hasmoney -= ai.playerbettingmoney;
                             master.totalbettingmoney += ai.playerbettingmoney;
                         }
-                        staticaibettingname = "half";
+                        staticaibettingname = "Half";
                         break;
                     case 2:
                         //앞사람 배팅금
@@ -56,26 +56,26 @@ namespace MyGame
                         {
                             ai.playerbettingmoney =  ai.hasmoney;
                             ai.hasmoney = 0;
-                            staticaibettingname = "all in";
+                            staticaibettingname = "All In";
                         }
                 
                         else if (ai.hasmoney > player.playerbettingmoney)
                         {
                             ai.playerbettingmoney = player.playerbettingmoney;
                             ai.hasmoney -= ai.playerbettingmoney;
-                            staticaibettingname = "call";
+                            staticaibettingname = "Call";
                         }
 
                         master.totalbettingmoney += ai.playerbettingmoney;
                         break;
                     case 3:
-                        staticaibettingname = "fold";
+                        staticaibettingname = "Fold";
                         break;
                     case 4:
                         ai.playerbettingmoney = ai.hasmoney;
                         ai.hasmoney = 0;
                         master.totalbettingmoney += ai.playerbettingmoney;
-                        staticaibettingname = "all in";
+                        staticaibettingname = "All In";
 
                         break;
 
@@ -101,14 +101,14 @@ namespace MyGame
             while (true)
             {
                 Console.SetCursorPosition(0, 27);
-                Console.WriteLine("                                                                       ");
-                Console.WriteLine("배팅 뭐할래? 1번 : 하프, 2번 : 콜, 3번 : 폴드, 4번 : 올인");
+                Console.WriteLine("                                                            ");
+                Console.WriteLine("배팅 뭐할래? 1번 : Half, 2번 : Call, 3번 : Fold, 4번 : All IN");
                 Console.SetCursorPosition(0, 27);
                 answer = int.Parse(Console.ReadLine());
                 switch (answer)
                 {
                     case 1:
-                        if(staticaibettingname == "allin")
+                        if(staticaibettingname == "All In")
                         {
                             Console.WriteLine("콜,다이 만됌");
                             continue;
@@ -122,35 +122,35 @@ namespace MyGame
                         else if (player.hasmoney > ai.playerbettingmoney)
                         {
 
-                            Console.WriteLine("half발동");
+                            Console.WriteLine("Half발동");
                             //앞사람 배팅금 + 전체배팅금/2
                             player.playerbettingmoney = ai.playerbettingmoney + master.totalbettingmoney / 2;
 
                             player.hasmoney -= player.playerbettingmoney;
                             master.totalbettingmoney += player.playerbettingmoney;
                         }
-                        staticplayerbettingname = "half";
+                        staticplayerbettingname = "Half";
                         break;
                     case 2:
-                        Console.WriteLine("call발동");
+                        Console.WriteLine("Call발동");
                         //앞사람 배팅금
                         if (player.hasmoney <= ai.playerbettingmoney)
                         {
                             player.playerbettingmoney = player.hasmoney;
                             player.hasmoney = 0;
-                            staticplayerbettingname = "all in";
+                            staticplayerbettingname = "All In";
                         }
                         else if (player.hasmoney > ai.playerbettingmoney)
                         {
                             player.playerbettingmoney = ai.playerbettingmoney;
                             player.hasmoney -= player.playerbettingmoney;
-                            staticplayerbettingname = "call";
+                            staticplayerbettingname = "Call";
                         }
                         master.totalbettingmoney += player.playerbettingmoney;
                         break;
                     case 3:
-                        Console.WriteLine("fold발동");
-                        staticplayerbettingname = "fold";
+                        Console.WriteLine("Fold발동");
+                        staticplayerbettingname = "Fold";
                         break;
                     case 4:
                         Console.WriteLine("올인");
@@ -158,7 +158,7 @@ namespace MyGame
                         player.hasmoney = 0;
 
                         master.totalbettingmoney += player.playerbettingmoney;
-                        staticplayerbettingname = "all in";
+                        staticplayerbettingname = "All In";
                         break;
 
 

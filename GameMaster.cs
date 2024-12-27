@@ -25,18 +25,18 @@ namespace MyGame
         public void testnum()
         { 
             //37 47 49
-            player.hascard[0].CardNum = 3;
+            player.hascard[0].CardNum = 4;
             player.hascard[0].isGwang = true;
-            player.hascard[1].CardNum = 7;
+            player.hascard[1].CardNum = 9;
             player.hascard[1].isGwang = true;
 
 
 
 
             ai.hascard[0].CardNum = 1;
-            ai.hascard[0].isGwang = false;
-            ai.hascard[1].CardNum = 2;
-            ai.hascard[1].isGwang = false;
+            ai.hascard[0].isGwang = true;
+            ai.hascard[1].CardNum = 7;
+            ai.hascard[1].isGwang = true;
 
 
         }
@@ -79,8 +79,8 @@ namespace MyGame
 
 
                 //3. 1번째 카드분배, 이미지
-                player.AddCard(deck.drawcard());
-                ai.AddCard(deck.drawcard());
+                deck.AddCard(deck.drawcard(),player);
+                deck.AddCard(deck.drawcard(),ai);
                 cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum, player.hascard[0].isGwang);
                 Timedelay(0.5);
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum, ai.hascard[0].isGwang);
@@ -89,7 +89,7 @@ namespace MyGame
                 //4. 1번째 배팅
                 if (bettingclass.playerbettingname(player, ai, this) == 3)//다이시 리겜
                 {
-                    Betting.staticplayerbettingname = "die";
+                    Betting.staticplayerbettingname = "Fold";
                     ai.hasmoney += totalbettingmoney;
                     showprint();
                     aiwinprint();
@@ -99,7 +99,7 @@ namespace MyGame
                 }
                 if (bettingclass.aibettingname(player, ai, this) == 3)//다이시 리겜
                 {
-                    Betting.staticaibettingname = "die";
+                    Betting.staticaibettingname = "Fold";
                     player.hasmoney += totalbettingmoney;
                     showprint();
                     playerwinprint();
@@ -112,8 +112,13 @@ namespace MyGame
 
 
                 //5. 2번쨰 1장분배, 이미지
-                player.AddCard(deck.drawcard());
-                ai.AddCard(deck.drawcard());
+                deck.AddCard(deck.drawcard(),player);
+                deck.AddCard(deck.drawcard(),ai);
+
+                //족보이름생성
+                winnerSystemclass.playerjokbo(ai);
+                winnerSystemclass.playerjokbo(player);
+
                 showprint();
                 cardIMageclass.PlayerCardnumimage1(player.hascard[0].CardNum, player.hascard[0].isGwang);
                 cardIMageclass.AiCardnumimage1(ai.hascard[0].CardNum, ai.hascard[0].isGwang);
@@ -123,12 +128,12 @@ namespace MyGame
                 Timedelay(1);
 
                 //임의 카드 수정
-                //testnum();
+                testnum();
 
                 //6. 2번쨰 배팅
                 if (bettingclass.playerbettingname(player, ai, this) == 3)//다이시 리겜
                 {
-                    Betting.staticplayerbettingname = "die";
+                    Betting.staticplayerbettingname = "Fold";
                     ai.hasmoney += totalbettingmoney;
                     showprint();
                     aiwinprint();   
@@ -138,7 +143,7 @@ namespace MyGame
                 }
                 if (bettingclass.aibettingname(player, ai, this) == 3)//다이시 리겜
                 {
-                    Betting.staticaibettingname = "die";
+                    Betting.staticaibettingname = "Fold";
                     player.hasmoney += totalbettingmoney;
                     showprint();
                     playerwinprint();
@@ -152,6 +157,8 @@ namespace MyGame
                 Timedelay(3);
                 bagwinner();
                 showprint();
+                player.staticjokboname = "";
+                ai.staticjokboname = "";
                 //draw시 재경기
                 if (isdraw == true)
                 {
@@ -294,6 +301,7 @@ namespace MyGame
             Console.WriteLine();
             Console.WriteLine("=============================");
             Console.WriteLine("ai betting : " + Betting.staticaibettingname);
+            Console.WriteLine("ai jokbo : "+ai.staticjokboname);
             Console.SetCursorPosition(8, 8);
             Console.WriteLine(">ai카드");
             Console.SetCursorPosition(8, 13);
@@ -302,6 +310,7 @@ namespace MyGame
             Console.WriteLine(">player카드");
             Console.WriteLine();
             Console.WriteLine();
+            Console.WriteLine("player jokbo : " + player.staticjokboname);
             Console.WriteLine("player betting : " + Betting.staticplayerbettingname);
             Console.WriteLine("=============================");
             Console.WriteLine("Player");
@@ -342,6 +351,8 @@ namespace MyGame
             isdraw = false;
             Betting.staticplayerbettingname = "";
             Betting.staticaibettingname = "";
+            player.staticjokboname = "";
+            ai.staticjokboname = "";
             Console.Clear();
         }
 

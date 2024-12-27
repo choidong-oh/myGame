@@ -10,6 +10,7 @@ namespace MyGame
     {
         //player,ai 마다 족보점수를 반환하고 
         //족보점수로 비교후 string형으로 반환(playerwin, aiwin, draw)
+
         public List<int> playerjokbo(Player player)
         {
             List<int> jokboarray = new List<int>();
@@ -21,6 +22,7 @@ namespace MyGame
             {
                 jokboarray.Add(1001);
                 jokboarray.Add(0);
+                player.staticjokboname = "38광땡";
                 Console.WriteLine("38광땡");
                 return jokboarray;
             }
@@ -28,6 +30,7 @@ namespace MyGame
             {
                 jokboarray.Add(951);
                 jokboarray.Add(0);
+                player.staticjokboname = "13광땡";
                 Console.WriteLine("13광땡");
                 return jokboarray;
 
@@ -36,6 +39,7 @@ namespace MyGame
             {
                 jokboarray.Add(951);
                 jokboarray.Add(0);
+                player.staticjokboname = "18광땡";
                 Console.WriteLine("18광땡");
                 return jokboarray;
 
@@ -46,6 +50,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
+                player.staticjokboname = "장땡";
                 Console.WriteLine("장땡");
                 return jokboarray;
             }
@@ -53,6 +58,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum *10);
                 jokboarray.Add(0);
+                player.staticjokboname = "9땡";
                 Console.WriteLine("9땡");
                 return jokboarray;
             }
@@ -61,6 +67,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
+                player.staticjokboname = "8땡";
                 Console.WriteLine("8땡");
                 return jokboarray;
             }
@@ -69,6 +76,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
+                player.staticjokboname = "7땡";
                 Console.WriteLine("7땡");
                 return jokboarray;
             }
@@ -77,6 +85,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
+                player.staticjokboname = "6땡";
                 Console.WriteLine("6땡");
                 return jokboarray;
             }
@@ -85,6 +94,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum*10 );
                 jokboarray.Add(0);
+                player.staticjokboname = "5땡";
                 Console.WriteLine("5땡");
                 return jokboarray;
             }
@@ -92,6 +102,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
+                player.staticjokboname = "4땡";
                 Console.WriteLine("4땡");
                 return jokboarray;
             }
@@ -99,6 +110,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
+                player.staticjokboname = "3땡";
                 Console.WriteLine("3땡");
                 return jokboarray;
             }
@@ -106,6 +118,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
+                player.staticjokboname = "2땡";
                 Console.WriteLine("2땡");
                 return jokboarray;
             }
@@ -113,6 +126,7 @@ namespace MyGame
             {
                 jokboarray.Add(100 + has1.CardNum * 10);
                 jokboarray.Add(0);
+                player.staticjokboname = "1땡";
                 Console.WriteLine("1땡");
                 return jokboarray;//110
             }
@@ -123,6 +137,7 @@ namespace MyGame
             {
                 jokboarray.Add(56);
                 jokboarray.Add(0);
+                player.staticjokboname = "알리";
                 Console.WriteLine("알리");
                 return jokboarray;
             }
@@ -130,6 +145,7 @@ namespace MyGame
             {
                 jokboarray.Add(55);
                 jokboarray.Add(0);
+                player.staticjokboname = "독사";
                 Console.WriteLine("독사");
                 return jokboarray;
             }
@@ -137,6 +153,7 @@ namespace MyGame
             {
                 jokboarray.Add(54);
                 jokboarray.Add(0);
+                player.staticjokboname = "구삥";
                 Console.WriteLine("구삥");
                 return jokboarray;
             }
@@ -144,6 +161,7 @@ namespace MyGame
             {
                 jokboarray.Add(53);
                 jokboarray.Add(0);
+                player.staticjokboname = "장삥";
                 Console.WriteLine("장삥");
                 return jokboarray;
             }
@@ -151,6 +169,7 @@ namespace MyGame
             {
                 jokboarray.Add(52);
                 jokboarray.Add(0);
+                player.staticjokboname = "장사";
                 Console.WriteLine("장사");
                 return jokboarray;
             }
@@ -158,6 +177,7 @@ namespace MyGame
             {
                 jokboarray.Add(51);
                 jokboarray.Add(0);
+                player.staticjokboname = "세륙";
                 Console.WriteLine("세륙");
                 return jokboarray;
             }
@@ -168,6 +188,7 @@ namespace MyGame
                 //땡일때만 사용 // 0끗
                 jokboarray.Add(0);
                 jokboarray.Add(1);
+                player.staticjokboname = "땡잡이";
                 Console.WriteLine("땡잡이");
                 return jokboarray;
             }
@@ -178,6 +199,7 @@ namespace MyGame
                 //13,18광떙일때 사용 //1끗
                 jokboarray.Add(1);
                 jokboarray.Add(2);
+                player.staticjokboname = "암행어사";
                 Console.WriteLine("암행어사");
                 return jokboarray;
             }
@@ -187,6 +209,7 @@ namespace MyGame
                 //구땡이하 재경기
                 jokboarray.Add(3);
                 jokboarray.Add(3);
+                player.staticjokboname = "멍텅구리 구사";
                 Console.WriteLine("멍텅구리 구사");
                 return jokboarray;
             }
@@ -196,7 +219,6 @@ namespace MyGame
             {
                 var jokbopoint = has1.CardNum + has2.CardNum;
 
-                Console.WriteLine("끗");
                 //10초과일때 -10 // 17이면 => 7
                 if(jokbopoint > 10)
                 {
@@ -204,6 +226,8 @@ namespace MyGame
                 }
                 jokboarray.Add((int)jokbopoint);
                 jokboarray.Add(0);
+                player.staticjokboname = jokbopoint + "끗";
+                Console.WriteLine("끗");
                 return jokboarray;//7끗17
             }
              return jokboarray;

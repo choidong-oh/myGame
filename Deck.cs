@@ -57,12 +57,37 @@ namespace MyGame
 
 
         }
+
         public Card drawcard()
         {
             //마지막 패 뽑고 반환
             var temp = usedeck.Last();
             usedeck.Remove(temp);
             return temp;
+        }
+        //덱에 한장 추가
+        public void AddCard(Card card,Player player)
+        {
+            // Console.WriteLine("패에 카드 한장 드로우");
+            player.hascard.Add(card);
+            //카드정렬
+            if (player.hascard.Count >= 2)
+            {
+                if (player.hascard[0].CardNum > player.hascard[1].CardNum)
+                {
+                    int temp = player.hascard[0].CardNum;
+                    player.hascard[0].CardNum = player.hascard[1].CardNum;
+                    player.hascard[1].CardNum = temp;
+
+                    var temp1 = player.hascard[0].isGwang;
+                    player.hascard[0].isGwang = player.hascard[1].isGwang;
+                    player.hascard[1].isGwang = temp1;
+
+
+                }
+            }
+
+
         }
 
 

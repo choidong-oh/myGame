@@ -15,36 +15,10 @@ namespace MyGame
         public List<Card> hascard = new List<Card>();
         public int hasmoney;//소지돈
         public int playerbettingmoney;//각판 플레이어 배팅 머니
-
+        public string staticjokboname;
         public Player(int money)
         {
             hasmoney = money;
-        }
-
-
-        //덱에 한장 추가
-        public void AddCard(Card card)
-        {
-           // Console.WriteLine("패에 카드 한장 드로우");
-            hascard.Add(card);
-            //카드정렬
-            if(hascard.Count >= 2 )
-            {
-                if (hascard[0].CardNum > hascard[1].CardNum)
-                {
-                    int temp = hascard[0].CardNum;
-                    hascard[0].CardNum = hascard[1].CardNum;
-                    hascard[1].CardNum = temp;
-
-                    var temp1 = hascard[0].isGwang;
-                    hascard[0].isGwang = hascard[1].isGwang;
-                    hascard[1].isGwang = temp1;
-
-
-                }
-            }
-            
-
         }
        
 
