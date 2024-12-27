@@ -15,18 +15,13 @@ namespace MyGame
         Player player;
         Ai ai;
         Deck deck = new Deck();
-        Card card = new Card(); 
         WinnerSystem winnerSystemclass = new WinnerSystem();
         CardIMage cardIMageclass = new CardIMage();  
         public int totalbettingmoney;//판돈
         public int basicbettingmoney = 1000;//기본배팅금
         Betting bettingclass = new Betting();
-        public static string playeranswerbettingname;
-        public static string aianswerbettingname;
-        
-
-
         public static bool isdraw = false;
+
         public void testnum()
         { 
             //37 47 49
@@ -94,7 +89,7 @@ namespace MyGame
                 //4. 1번째 배팅
                 if (bettingclass.playerbettingname(player, ai, this) == 3)//다이시 리겜
                 {
-                    playeranswerbettingname = "die";
+                    Betting.staticplayerbettingname = "die";
                     ai.hasmoney += totalbettingmoney;
                     showprint();
                     aiwinprint();
@@ -104,7 +99,7 @@ namespace MyGame
                 }
                 if (bettingclass.aibettingname(player, ai, this) == 3)//다이시 리겜
                 {
-                    aianswerbettingname = "die";
+                    Betting.staticaibettingname = "die";
                     player.hasmoney += totalbettingmoney;
                     showprint();
                     playerwinprint();
@@ -133,7 +128,7 @@ namespace MyGame
                 //6. 2번쨰 배팅
                 if (bettingclass.playerbettingname(player, ai, this) == 3)//다이시 리겜
                 {
-                    playeranswerbettingname = "die";
+                    Betting.staticplayerbettingname = "die";
                     ai.hasmoney += totalbettingmoney;
                     showprint();
                     aiwinprint();   
@@ -143,7 +138,7 @@ namespace MyGame
                 }
                 if (bettingclass.aibettingname(player, ai, this) == 3)//다이시 리겜
                 {
-                    aianswerbettingname = "die";
+                    Betting.staticaibettingname = "die";
                     player.hasmoney += totalbettingmoney;
                     showprint();
                     playerwinprint();
@@ -184,6 +179,7 @@ namespace MyGame
 
         public void aiwinprint()
         {
+            //2장의 카드가 있어 족보이름이 있을경우
             if (player.hascard.Count ==2 || ai.hascard.Count == 2)
             {
                 Console.SetCursorPosition(55, 10);
@@ -215,8 +211,8 @@ namespace MyGame
 
         public void first(Player out1, Ai out2)
         {
-            ai = out2;
-            player = out1;
+            this.ai = out2;
+            this.player = out1;
             //main에서 player,ai할당
             //Player myplayer = new Player(51000);
             //Ai ai = new Ai(51000);
@@ -229,7 +225,6 @@ namespace MyGame
             Console.WriteLine("아무거나 눌르세요");
             Console.ReadLine();
         }
-
 
         public void bagwinner()
         {
@@ -333,7 +328,7 @@ namespace MyGame
             }
         }
 
-        //게임리셋
+        //게임리셋//드로우 제외
         public void gamereset()
         {
             Console.Clear();

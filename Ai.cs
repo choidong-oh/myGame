@@ -10,7 +10,7 @@ namespace MyGame
     {
         public Ai(int money) : base(money)
         {
-            hasmoney = money;
+            //hasmoney = money;
         }
     }
 }

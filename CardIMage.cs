@@ -125,11 +125,11 @@ namespace MyGame
                 //playerwin
                 {
                 {"■","■","■","■","■","■","■"},
-                {"■","　","■","　","　","　","■"},
-                {"■","　","■","　","■","　","■"},
-                {"■","　","■","　","■","　","■"},
-                {"■","　","■","　","■","　","■"},
-                {"■","　","■","　","　","　","■"},
+                {"■","■","■","■","■","■","■"},
+                {"■","■","■","■","■","■","■"},
+                {"■","■","■","■","■","■","■"},
+                {"■","■","■","■","■","■","■"},
+                {"■","■","■","■","■","■","■"},
                 {"■","■","■","■","■","■","■"},
                 },
 
@@ -137,17 +137,14 @@ namespace MyGame
             };
         public void PlayerCardnumimage1(int firstcard, bool isgwang)
         {
-            if (firstcard <= 10)
+            for (int j = 0; j < 7; j++)
             {
-                for (int j = 0; j < 7; j++)
+                for (int k = 0; k < 7; k++)
                 {
-                    for (int k = 0; k < 7; k++)
-                    {
-                        Console.SetCursorPosition(33 + 2 * k, 15 + j);
-                        Console.Write(str[firstcard - 1, j, k]);
-                    }
-                    Console.WriteLine();
+                    Console.SetCursorPosition(33 + 2 * k, 15 + j);
+                    Console.Write(str[firstcard - 1, j, k]);
                 }
+                Console.WriteLine();
             }
             if (isgwang == true)
             {
@@ -182,6 +179,16 @@ namespace MyGame
 
         public void AiCardnumimage1(int firstcard,bool isgwang)
         {
+
+            for (int j = 0; j < 7; j++)
+            {
+                for (int k = 0; k < 7; k++)
+                {
+                    Console.SetCursorPosition(33 + 2 * k, 5 + j);
+                    Console.Write(str[firstcard - 1, j, k]);
+                }
+                Console.WriteLine();
+            }
             for (int j = 0; j < 7; j++)
             {
                 for (int k = 0; k < 7; k++)
@@ -198,11 +205,24 @@ namespace MyGame
                 Console.WriteLine("■");
                 Console.ResetColor();
             }
-
+            
+            
         }
 
-        public void AiCardnumimage2(int secondcard,bool isgwang)
+        public void AiCardnumimage2(int secondcard, bool isgwang)
         {
+
+            for (int j = 0; j < 7; j++)
+            {
+                for (int k = 0; k < 7; k++)
+                {
+                    Console.SetCursorPosition(55 + 2 * k, 5 + j);
+                    Console.Write(str[secondcard - 1, j, k]);
+                }
+                Console.WriteLine();
+            }
+
+
             for (int j = 0; j < 7; j++)
             {
                 for (int k = 0; k < 7; k++)
@@ -219,6 +239,9 @@ namespace MyGame
                 Console.WriteLine("■");
                 Console.ResetColor();
             }
+
+
+
         }
 
        

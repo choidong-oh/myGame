@@ -23,11 +23,8 @@ namespace MyGame
             while (true)
             {
                 gameMaster.gamestart();
-                if (GameMaster.isdraw == true)
-                {
 
-                }
-                else if (GameMaster.isdraw == false)
+                if (GameMaster.isdraw == false)
                 {
                     if (gameMaster.gamefinish() == true)
                     {

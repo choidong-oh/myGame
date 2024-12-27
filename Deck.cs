@@ -10,7 +10,7 @@ namespace MyGame
     {
         Card card;
         //카드 할당
-        List<Card> unusedeck = new List<Card>(20);//확인용
+        //List<Card> unusedeck = new List<Card>(20);//확인용
         public List<Card> usedeck = new List<Card>(20);//사용할덱
         
         
@@ -39,6 +39,7 @@ namespace MyGame
             usedeck[2].isGwang = true;
             usedeck[7].isGwang = true;
 
+            //피셔예이츠
             //랜덤부여
             for (int i = usedeck.Count - 1; i > 0; i--) //인덱스 역순
             {
@@ -49,6 +50,7 @@ namespace MyGame
                 usedeck[j] = temp;
             }
 
+            //배팅 초기화
             Betting.staticplayerbettingname = "";
             Betting.staticaibettingname = "";
 
@@ -57,7 +59,6 @@ namespace MyGame
         }
         public Card drawcard()
         {
-            //Console.WriteLine("카드 한장 뽑음");
             //마지막 패 뽑고 반환
             var temp = usedeck.Last();
             usedeck.Remove(temp);
@@ -76,8 +77,6 @@ namespace MyGame
                 Console.WriteLine("광여부 : " + ele.isGwang);
                 count++;
             }
-
-
 
         }
 

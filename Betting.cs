@@ -108,7 +108,7 @@ namespace MyGame
                 switch (answer)
                 {
                     case 1:
-                        if(GameMaster.aianswerbettingname == "allin")
+                        if(staticaibettingname == "allin")
                         {
                             Console.WriteLine("콜,다이 만됌");
                             continue;

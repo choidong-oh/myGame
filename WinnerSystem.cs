@@ -8,18 +8,14 @@ namespace MyGame
 {
     internal class WinnerSystem
     {
-        Player player;
-        Ai ai;
-        
-
-        //player마다 족보를 반환시키고 그거를 넣어서 비교해서 이기는 방향으로
-        //족보 생성 반환
+        //player,ai 마다 족보점수를 반환하고 
+        //족보점수로 비교후 string형으로 반환(playerwin, aiwin, draw)
         public List<int> playerjokbo(Player player)
         {
             List<int> jokboarray = new List<int>();
             var has1 = player.hascard[0];
             var has2 = player.hascard[1];
-            jokboarray.Clear();//가지고있는 족보포인트 초기화
+            jokboarray.Clear();//혹시 모를 가지고있는거 초기화
             //특수규칙 jokboarray[1] = 땡잡이1 ,암행어사2, 멍텅구리3
             if (has1.isGwang == true && has1.CardNum == 3&&has2.isGwang ==true&&has2.CardNum==8)
             {
@@ -210,7 +206,7 @@ namespace MyGame
                 jokboarray.Add(0);
                 return jokboarray;//7끗17
             }
-             return jokboarray;// "5ttang";
+             return jokboarray;
         }
 
        
