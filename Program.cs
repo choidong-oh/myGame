@@ -13,21 +13,38 @@ namespace MyGame
 
         static void Main(string[] args)
         {
-            //            동영상
-            //{
-            //                메인화면
-            //                기본배팅
-            //카드분배돼면
-            //폴드로지는거보여주고
-            //콜로 이기는거 보여주고
-            //올인을박고
-            //다음배팅때 하프를 눌르면안되는거 보여주고
-            //콜박고
-            //38광떙으로 이기고 마무리
+        //            동영상
+        //{
+        //                메인화면
+        //                기본배팅
+        //카드분배돼면
+        //폴드로지는거보여주고
+        //콜로 이기는거 보여주고
+        //올인을박고
+        //다음배팅때 하프를 눌르면안되는거 보여주고
+        //콜박고
+        //38광떙으로 이기고 마무리
 
-            //추가로멍터구리구사
-            //예외처리 땡잡이 보야주면댐
-            //}
+        //추가로멍터구리구사
+        //예외처리 땡잡이 보야주면댐
+        //}
+
+
+//        사이트: https://meta9th.notion.site/9-1354f59458fc80408e99f00618b5b808
+
+
+
+//        회의사이트: https://us02web.zoom.us/j/4292165758?pwd=Qk9EdUc4SnNBWUtFNFc0MFplNWUyZz09
+
+
+//            ctrl + f : https://record5555.tistory.com/11
+
+
+
+//            마인드맵 제작 사이트: 깃마인드 https://gitmind.com/kr/
+
+
+//한게임 섯다 설명: https://gostop.hangame.com/gameGuide/gssudda/guide_gssudda01_03.html
 
 
             //            파워포인트
